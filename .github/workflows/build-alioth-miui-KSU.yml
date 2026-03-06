@@ -30,10 +30,13 @@ jobs:
       run: |
         if [ -f "build_miui_main.sh" ]; then
           bash build_miui_main.sh alioth ksu
-        else
+        elif [ -f "build_just_miui_RKSU.sh" ]; then
           bash build_just_miui_RKSU.sh alioth ksu
-        else
+        elif [ -f "build_just_miui_5.4bpf.sh" ]; then
           bash build_just_miui_5.4bpf.sh alioth ksu
+        else
+          echo "No build script found!"
+          exit 1
         fi
 
     - name: Upload build artifacts
