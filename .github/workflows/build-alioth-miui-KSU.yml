@@ -28,7 +28,9 @@ jobs:
 
     - name: Build kernel for alioth with KSU
       run: |
-        if [ -f "build_just_miui_RKSU.sh" ]; then
+        if [ -f "build_miui_main.sh" ]; then
+          bash build_miui_main.sh alioth ksu
+        else
           bash build_just_miui_RKSU.sh alioth ksu
         else
           bash build_just_miui_5.4bpf.sh alioth ksu
